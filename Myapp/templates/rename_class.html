@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'messages.html' %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <title>Rename Class</title>
+    <style>
+        body {
+            background-color: #343a40;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin-top: 150px;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            background-color: #495057;
+            color: white;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            color: #007bff;
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Rename Class</h1>
+
+    <form method="post">
+        <label for="class_id">Select Class to Rename:</label>
+        <select id="class_id" name="class_id" required>
+            <!-- Populate the select dropdown with classes -->
+            {% for class in classes %}
+                <option value="{{ class.id }}">{{ class.class_name }}</option>
+            {% endfor %}
+        </select>
+        <label for="new_class_name">New Class Name:</label>
+        <input type="text" id="new_class_name" name="new_class_name" required>
+        <button type="submit" name="rename_class">Rename Class</button>
+    </form>
+
+    <!-- Button to return to class dashboard -->
+    <a href="{{ url_for('main.class_dashboard') }}">Return to Class Dashboard</a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+</html>
