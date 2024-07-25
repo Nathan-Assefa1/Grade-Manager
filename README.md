@@ -2,6 +2,7 @@
 A grading interface that allows teachers to manage students grades, alongside the ability to create and delete classes and students.
 
 You can access the website here: https://grade-manager.onrender.com/
+Note: Can take about a minute to awaken the render instance
 
 # What I Learned
 - SCRUM Software Development
